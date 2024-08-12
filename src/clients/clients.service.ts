@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Client } from './clients.entity';
 import { Repository } from 'typeorm';
@@ -19,12 +19,18 @@ export class ClientsService {
        return this.clientRepository.find();
     }
 
-    getClient(id: number) {
-        return this.clientRepository.findOne({
+    async getClient(id: number) {
+        const clientFound = await this.clientRepository.findOne({
             where: {
                 id
             }
         })
+
+        if (!clientFound) {
+            return new HttpException('Client not found', HttpStatus.NOT_FOUND);
+        }
+
+        return clientFound;
     }
 
     deleteClient(id: number){

@@ -15,7 +15,7 @@ export class ClientsController {
     }
 
     @Get(':id')
-    getClient(@Param('id') id: number): Promise<Client> {
+    getClient(@Param('id') id: number) {
         return this.clientsService.getClient(id);
     }
 
