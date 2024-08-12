@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Client } from './clients.entity';
 import { Repository } from 'typeorm';
 import { CreateClientDto } from './dto/create-client-dto';
+import { UpdateClientDto } from './dto/update-client-dto';
 
 
 @Injectable()
@@ -24,5 +25,13 @@ export class ClientsService {
                 id
             }
         })
+    }
+
+    deleteClient(id: number){
+        return this.clientRepository.delete({ id });
+    }
+
+    updateClient(id: number, user: UpdateClientDto){
+        return this.clientRepository.update({id}, user)
     }
 }
