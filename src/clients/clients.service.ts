@@ -13,4 +13,8 @@ export class ClientsService {
         const newClient = this.clientRepository.create(client);
         this.clientRepository.save(newClient);
     }
+
+    async getClients(): Promise<Client[]>{
+       return this.clientRepository.find();
+    }
 }
