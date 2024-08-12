@@ -17,4 +17,12 @@ export class ClientsService {
     async getClients(): Promise<Client[]>{
        return this.clientRepository.find();
     }
+
+    getClient(id: number) {
+        return this.clientRepository.findOne({
+            where: {
+                id
+            }
+        })
+    }
 }
