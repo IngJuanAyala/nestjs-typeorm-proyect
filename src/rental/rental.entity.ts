@@ -6,6 +6,9 @@ export class Rental {
     @PrimaryGeneratedColumn()
     id: number
 
+    @Column()
+    rentalNumber: number
+
     @ManyToOne(() => Client, (client) => client.code)
     @JoinColumn({ name: 'client_code' })
     client: Client
