@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ClientsModule } from './clients/clients.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { RentalModule } from './rental/rental.module';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { ConfigModule } from '@nestjs/config';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize:true
     }),
-    ClientsModule],
+    ClientsModule,
+    RentalModule],
   controllers: [AppController],
   providers: [AppService],
 })

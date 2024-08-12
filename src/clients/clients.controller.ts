@@ -1,7 +1,6 @@
 import { Controller, Post, Body, Get, Param, Delete, ParseIntPipe, Patch } from '@nestjs/common';
 import { CreateClientDto } from './dto/create-client-dto';
 import { ClientsService } from './clients.service';
-import { Client } from './clients.entity';
 import { UpdateClientDto } from './dto/update-client-dto';
 
 

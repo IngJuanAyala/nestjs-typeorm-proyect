@@ -40,4 +40,5 @@ export class Client {
 
     @Column()
     state: boolean
+
 }
