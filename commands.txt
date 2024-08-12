@@ -1,0 +1,8 @@
+create module to manage the clients 
+nest g module clients
+
+create controller clients
+nest g controller clients --no-spec
+
+create service clients
+nest g service clients --no-spec
